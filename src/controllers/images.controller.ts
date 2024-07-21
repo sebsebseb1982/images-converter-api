@@ -19,13 +19,13 @@ export default class ImagesController {
 
                     return image
                         .resize(width, height)
-                        .writeAsync('output.bmp');
+                        .writeAsync(`output.${convertTo}`);
                 })
                 .catch((err) => {
                     console.error(err);
                 })
                 .then(() => {
-                    res.download('output.bmp');
+                    res.download(`output.${convertTo}`);
                 });
         } catch (err) {
             res.status(500).json({
